@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Character2Controller : MonoBehaviour
@@ -17,9 +18,14 @@ public class Character2Controller : MonoBehaviour
     private bool isHurt = false; // Hurt 상태 여부
     private bool isDead = false;
 
+    public GameObject assaignPlayer;
+
     void Start()
     {
         currentHP = maxHP; // 체력 초기화
+        assaignPlayer = GameObject.FindGameObjectWithTag("Player");
+        target = assaignPlayer.transform;
+
     }
 
     void Update()
@@ -31,12 +37,20 @@ public class Character2Controller : MonoBehaviour
         if (distanceToTarget > attackRange)
         {
             // 타겟과 멀리 있을 때 Walk 비중 높임
-            currentBlendValue = Mathf.Lerp(currentBlendValue, 1f, Time.deltaTime * 5); // Walk 애니메이션
+            currentBlendValue = Mathf.Lerp(currentBlendValue, 0.5f, Time.deltaTime * 5); // Walk 애니메이션
         }
         else
         {
             // 타겟이 가까울 때 Attack 비중 높임
             currentBlendValue = Mathf.Lerp(currentBlendValue, 0f, Time.deltaTime * 5); // Attack 애니메이션
+        }
+
+       void OnTriggerEnter2D(Collider other)
+        {
+            if(other.tag == "bullet")
+            {
+                currentBlendValue = Mathf.Lerp(currentBlendValue, 1f, Time.deltaTime * 5);
+            }
         }
 
         // Blend 값을 Animator에 전달
