@@ -15,7 +15,7 @@ public class Character2Controller : MonoBehaviour
     private float currentHP;
     private bool isCasting = false; // Cast 상태 여부
     private bool isHurt = false; // Hurt 상태 여부
-    private bool isDead = false; // dead
+    private bool isDead = false;
 
     void Start()
     {
@@ -66,6 +66,7 @@ public class Character2Controller : MonoBehaviour
         if (isCasting) return; // Cast 상태에서는 데미지를 받지 않음
 
         currentHP -= damage;
+        animator.SetBool("isWalkAndAttack", false);
         animator.SetTrigger("Hurt"); // Hurt 애니메이션 실행
         StartCoroutine(HurtCooldown()); // Hurt 상태 처리
 
@@ -76,7 +77,7 @@ public class Character2Controller : MonoBehaviour
 
         if (currentHP <= 0 && !isDead)
         {
-            isDead = true;
+            isDead = true; // 사망 처리
             animator.SetTrigger("Death");
         }
     }
@@ -100,13 +101,13 @@ public class Character2Controller : MonoBehaviour
         animator.SetTrigger("Cast");
 
         yield return new WaitForSeconds(1.0f); // Cast 이후 Flame 실행
-                animator.SetTrigger("Flame");
+        animator.SetTrigger("Flame");
 
         // Flame이 완료되면 Spell 실행
         yield return new WaitForSeconds(1.0f); // Flame 애니메이션 재생 시간
         animator.SetTrigger("Spell");
 
- 
+
 
         // 다시 이동 시작
         isCasting = false;
