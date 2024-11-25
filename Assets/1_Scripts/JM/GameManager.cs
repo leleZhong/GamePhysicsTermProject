@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     {
         Transform obj = _myTF[UnityEngine.Random.Range(0, _myTF.Length)];
         Vector3 dir = _playerTF.position - obj.position;
-        Quaternion rotate = Quaternion.FromToRotation(Vector3.left, dir);
+        Quaternion rotate = Quaternion.FromToRotation(Vector3.down, dir);
 
         int num = UnityEngine.Random.Range(0, _enemy.Length);
         Instantiate(_enemy[num], obj.position, rotate);
