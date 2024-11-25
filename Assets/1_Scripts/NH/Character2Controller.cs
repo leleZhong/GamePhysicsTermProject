@@ -15,6 +15,7 @@ public class Character2Controller : MonoBehaviour
     private float currentHP;
     private bool isCasting = false; // Cast 상태 여부
     private bool isHurt = false; // Hurt 상태 여부
+    private bool isDead = false; // dead
 
     void Start()
     {
@@ -52,12 +53,12 @@ public class Character2Controller : MonoBehaviour
         }
 
         // 공격 쿨타임 확인
-        if (Time.time - lastAttackTime >= attackCool && distanceToTarget <= attackRange)
-        {
-            // 공격 실행
-            lastAttackTime = Time.time;
-            animator.SetTrigger("AttackTrigger"); // Attack 애니메이션 트리거
-        }
+        //if (Time.time - lastAttackTime >= attackCool && distanceToTarget <= attackRange)
+        //{
+        //    // 공격 실행
+        //    lastAttackTime = Time.time;
+        //    animator.SetTrigger("AttackTrigger"); // Attack 애니메이션 트리거
+        //}
     }
 
     public void TakeDamage(float damage)
@@ -73,8 +74,9 @@ public class Character2Controller : MonoBehaviour
             StartCoroutine(StartCast()); // 체력이 절반 이하일 경우 Cast 상태로 전환
         }
 
-        if (currentHP <= 0)
+        if (currentHP <= 0 && !isDead)
         {
+            isDead = true;
             animator.SetTrigger("Death");
         }
     }

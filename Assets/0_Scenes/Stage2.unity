@@ -2003,6 +2003,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 285256600710887691, guid: 186ff76a58d3c7945a23e63c0a2bc53a, type: 3}
+      propertyPath: _playerLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 285256600710887691, guid: 186ff76a58d3c7945a23e63c0a2bc53a, type: 3}
+      propertyPath: _bullet.Array.data[0]
+      value: 
+      objectReference: {fileID: 4911985188670537456, guid: 10721d697088c1a45b6c759fe49239e1, type: 3}
+    - target: {fileID: 285256600710887691, guid: 186ff76a58d3c7945a23e63c0a2bc53a, type: 3}
+      propertyPath: _bullet.Array.data[1]
+      value: 
+      objectReference: {fileID: 2320682000151393907, guid: 644ce19d71622d641824124797312c66, type: 3}
     - target: {fileID: 4010097724043538301, guid: 186ff76a58d3c7945a23e63c0a2bc53a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.216389
