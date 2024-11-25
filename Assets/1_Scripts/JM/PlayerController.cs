@@ -72,21 +72,7 @@ public class PlayerController : MonoBehaviour
 
     void Fire() // 총알 발사 함수
     {
-        switch (_playerLevel)
-        {
-            case 0:
-                PoolManager.Spawn(_bullet[0].gameObject, _myTF.position, _myTF.rotation);
-                break;
-            case 1:
-                PoolManager.Spawn(_bullet[0].gameObject, _myTF.position + new Vector3(0, 0.1f, 0), _myTF.rotation);
-                PoolManager.Spawn(_bullet[0].gameObject, _myTF.position - new Vector3(0, 0.1f, 0), _myTF.rotation);
-                break;
-            case 2:
-                PoolManager.Spawn(_bullet[0].gameObject, _myTF.position + new Vector3(0, 0.25f, 0) + new Vector3(0, 0.1f, 0), _myTF.rotation);
-                PoolManager.Spawn(_bullet[0].gameObject, _myTF.position - new Vector3(0, 0.25f, 0) - new Vector3(0, 0.1f, 0), _myTF.rotation);
-                PoolManager.Spawn(_bullet[1].gameObject, _myTF.position, _myTF.rotation);
-                break;
-        }
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -96,42 +82,11 @@ public class PlayerController : MonoBehaviour
         switch (other.tag)
         {
             case "enemy":
-                gameObject.SetActive(false);
-                Destroy(other.gameObject);
-                Invoke("ShowPlayer", 2);
                 break;
             case "enemyBullet":
-                gameObject.SetActive(false);
-                Destroy(other.gameObject);
-                Invoke("ShowPlayer", 2);
                 break;
             case "item":
                 break;
         }
-    }
-
-    void ShowPlayer()
-    {
-        if (GameManager.Instance.RespawnPlayer() == true)
-        {
-            gameObject.SetActive(true);
-            _myTF.position = new Vector3(0, -2, 0);
-            StartCoroutine(PlayerBegine());
-            GameManager.Instance.RespawnPlayer();
-        }
-    }
-
-    IEnumerator PlayerBegine()
-    {
-        _isBegine = true;
-        
-        for (int i = 0; i < 20; i++)
-        {
-            _spriteRenderer.color = _color[0];
-            yield return _wait;
-            _spriteRenderer.color = _color[1];
-            yield return _wait;
-        }
-        _isBegine = false;
     }
 }

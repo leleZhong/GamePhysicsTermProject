@@ -195,7 +195,9 @@ MonoBehaviour:
   _minBoundary: {x: -7, y: -4}
   _maxBoundary: {x: 7, y: 4}
   _anim: {fileID: 1084142904739493053}
-  _bullet: []
+  _bullet:
+  - {fileID: 0}
+  - {fileID: 0}
   _delay: 0
   _playerLevel: 0
   _myTF: {fileID: 4010097724043538301}
