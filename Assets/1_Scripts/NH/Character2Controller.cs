@@ -9,14 +9,16 @@ public class Character2Controller : MonoBehaviour
     public float maxHP = 100f; // 최대 체력
     public float attackRange = 3.0f; // 공격 거리
     public Animator animator;
+    public float spellNoEffectDuration = 2.0f; // Spell-NoEffect 유지 시간
 
     private float attackCool = 1.0f;
     private float lastAttackTime;
     private float currentBlendValue; //BlendTree 값
-    private float currentHP;
+    public float currentHP;
     private bool isCasting = false; // Cast 상태 여부
     private bool isHurt = false; // Hurt 상태 여부
     private bool isDead = false;
+    private bool isSpellNoEffect = false;
 
     public GameObject assaignPlayer;
 
@@ -25,11 +27,16 @@ public class Character2Controller : MonoBehaviour
         currentHP = maxHP; // 체력 초기화
         assaignPlayer = GameObject.FindGameObjectWithTag("Player");
         target = assaignPlayer.transform;
+       
 
     }
 
     void Update()
     {
+
+        if (isSpellNoEffect || isDead || isCasting) return; // 특정 상태에서는 Update 로직 중단
+
+
         // 타겟과의 거리 계산
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
@@ -37,20 +44,12 @@ public class Character2Controller : MonoBehaviour
         if (distanceToTarget > attackRange)
         {
             // 타겟과 멀리 있을 때 Walk 비중 높임
-            currentBlendValue = Mathf.Lerp(currentBlendValue, 0.5f, Time.deltaTime * 5); // Walk 애니메이션
+            currentBlendValue = Mathf.Lerp(currentBlendValue, 1f, Time.deltaTime * 5); // Walk 애니메이션
         }
         else
         {
             // 타겟이 가까울 때 Attack 비중 높임
             currentBlendValue = Mathf.Lerp(currentBlendValue, 0f, Time.deltaTime * 5); // Attack 애니메이션
-        }
-
-       void OnTriggerEnter2D(Collider other)
-        {
-            if(other.tag == "bullet")
-            {
-                currentBlendValue = Mathf.Lerp(currentBlendValue, 1f, Time.deltaTime * 5);
-            }
         }
 
         // Blend 값을 Animator에 전달
@@ -75,32 +74,70 @@ public class Character2Controller : MonoBehaviour
         //}
     }
 
-    public void TakeDamage(float damage)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (isCasting) return; // Cast 상태에서는 데미지를 받지 않음
-
-        currentHP -= damage;
-        animator.SetBool("isWalkAndAttack", false);
-        animator.SetTrigger("Hurt"); // Hurt 애니메이션 실행
-        StartCoroutine(HurtCooldown()); // Hurt 상태 처리
-
-        if (currentHP <= maxHP / 2 && !isCasting)
+        if (other.CompareTag("bullet") && !isSpellNoEffect && !isDead && !isCasting)
         {
-            StartCoroutine(StartCast()); // 체력이 절반 이하일 경우 Cast 상태로 전환
-        }
+            // Spell-NoEffect 상태로 전환
+            //StartCoroutine(TriggerSpellNoEffect());
 
-        if (currentHP <= 0 && !isDead)
-        {
-            isDead = true; // 사망 처리
-            animator.SetTrigger("Death");
+            // 체력 감소를 TakeDamage로 처리
+            TakeDamage(10); // 총알에 맞으면 10의 데미지를 줌
         }
     }
+
+
+
+    //private IEnumerator TriggerSpellNoEffect()
+    //{
+    //    isSpellNoEffect = true; // 상태 고정
+    //    animator.SetFloat("Blend", currentBlendValue);
+
+    //    // 일정 시간 대기
+    //    yield return new WaitForSeconds(spellNoEffectDuration);
+
+    //    // 상태 복원
+    //    isSpellNoEffect = false;
+    //    currentBlendValue = 0.5f; // Walk로 복귀
+    //    animator.SetFloat("Blend", currentBlendValue);
+    //}
+
+
+    public void TakeDamage(float damage)
+    {
+        if (isCasting || isDead || isHurt) return; // 현재 상태에서 데미지 무시
+        animator.SetBool("isWalkAndAttack", false);
+
+        currentHP -= damage;
+
+        // Hurt 상태로 전환
+        isHurt = true;
+        animator.SetBool("isHurt", true);
+
+        // Hurt 상태 처리 코루틴 시작
+        StartCoroutine(HurtCooldown());
+
+        // 체력이 절반 이하일 경우 캐스팅 시작
+        if (currentHP <= maxHP / 2 && !isCasting)
+        {
+            StartCoroutine(StartCast());
+        }
+
+        // 체력이 0 이하일 경우 사망 처리
+        if (currentHP <= 0 && !isDead)
+        {
+            isDead = true;
+            animator.SetTrigger("Death"); // Death는 여전히 트리거 사용
+        }
+    }
+
 
     private IEnumerator HurtCooldown()
     {
         isHurt = true;
         yield return new WaitForSeconds(0.5f); // Hurt 애니메이션 재생 시간
         isHurt = false;
+        animator.SetBool("isHurt", false);
     }
 
     private IEnumerator StartCast()
