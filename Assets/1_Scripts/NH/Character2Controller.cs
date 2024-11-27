@@ -9,29 +9,42 @@ public class Character2Controller : MonoBehaviour
     public float attackRange = 3.0f;
     public Animator animator;
     public float spellNoEffectDuration = 2.0f;
+    public GameObject Fire;
 
     private float currentBlendValue = 0.5f;
     public float currentHP;
     private bool isCasting = false;
     private bool isHurt = false;
     private bool isDead = false;
+    private bool hasCastSpell = false;
     private bool isSpellNoEffect = false;
+
     public BackGround background;
 
     public GameObject assignedPlayer;
+
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor; // 원래 색상 저장
 
     void Start()
     {
         currentHP = maxHP;
         assignedPlayer = GameObject.FindGameObjectWithTag("Player");
         target = assignedPlayer.transform;
+
+        // SpriteRenderer 초기화
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            originalColor = spriteRenderer.color; // 원래 색상 저장
+        }
     }
 
     void Update()
     {
         if (isSpellNoEffect || isDead || isCasting || isHurt) return;
 
-        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        float distanceToTarget = Vector3.Distance(transform.position, new Vector3(target.position.x, transform.position.y, target.position.z));
 
         if (distanceToTarget > attackRange)
         {
@@ -40,14 +53,22 @@ public class Character2Controller : MonoBehaviour
         else
         {
             currentBlendValue = Mathf.Lerp(currentBlendValue, 0f, Time.deltaTime * 5);
-            SetBackgroundSpeed(0);
+            //SetBackgroundSpeed(0);
+
+            // Spell이 실행되지 않은 경우에만 MoveAfterDelay 실행
+            if (!hasCastSpell)
+            {
+                StartCoroutine(MoveAfterDelay());
+            }
+
+
         }
 
         animator.SetFloat("Blend", currentBlendValue);
 
         if (distanceToTarget > attackRange)
         {
-            Vector3 direction = (target.position - transform.position).normalized;
+            Vector3 direction = new Vector3(target.position.x - transform.position.x,0f,0f).normalized;
             transform.position += direction * speed * Time.deltaTime;
             animator.SetBool("isWalkAndAttack", true);
         }
@@ -82,7 +103,7 @@ public class Character2Controller : MonoBehaviour
 
         StartCoroutine(HurtCooldown());
 
-        if (currentHP <= maxHP / 2 && !isCasting)
+        if (currentHP == maxHP / 2 && !isCasting)
         {
             StartCoroutine(StartCast());
         }
@@ -91,6 +112,8 @@ public class Character2Controller : MonoBehaviour
         {
             isDead = true;
             animator.SetTrigger("Death");
+            SetBackgroundSpeed(0);
+
         }
     }
 
@@ -116,6 +139,41 @@ public class Character2Controller : MonoBehaviour
 
         animator.SetTrigger("Spell");
 
+        yield return new WaitForSeconds(1.0f); // Spell 애니메이션 대기
+
+        animator.SetBool("isWalkAndAttack", true);
+
+        hasCastSpell = true;
         isCasting = false;
     }
+
+    private IEnumerator MoveAfterDelay()
+    {
+        
+
+        yield return new WaitForSeconds(3.0f);
+
+
+        // SpriteRenderer를 빨간색으로 변경
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = new Color(1f, 0.5f, 0.5f, 1f);
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        // X 방향으로 3만큼 이동
+        transform.position += new Vector3(0.01f, 0f, 0f);
+
+
+
+        // 원래 색상으로 복구
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = originalColor;
+        }
+
+    }
+
+
 }

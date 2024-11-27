@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6559303540247748843}
   - component: {fileID: 3315202539248490624}
   - component: {fileID: 5252277054442614992}
-  - component: {fileID: 1565199148547647011}
+  - component: {fileID: 1640430361322481431}
   m_Layer: 0
   m_Name: Bringer Of Death
   m_TagString: Enemy
@@ -127,11 +127,10 @@ MonoBehaviour:
   attackRange: 3
   animator: {fileID: 5515767329221325868}
   spellNoEffectDuration: 2
-  minDistance: 2
-  pushBackDistance: 3
-  pushBackSpeed: 5
+  Fire: {fileID: 0}
   currentHP: 0
-  assaignPlayer: {fileID: 0}
+  background: {fileID: 0}
+  assignedPlayer: {fileID: 0}
 --- !u!70 &5252277054442614992
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -167,7 +166,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
---- !u!50 &1565199148547647011
+--- !u!50 &1640430361322481431
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
