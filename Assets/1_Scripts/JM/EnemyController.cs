@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -51,7 +52,11 @@ public class EnemyController : MonoBehaviour
         _spriteRenderer.sprite = _images[1];
         Invoke("ReturnImage", 0.1f);
         if (_hp <= 0)
+        {
+            if (SceneManager.GetActiveScene().name == "Stage3")
+                Stage3.Instance.AddScore(10);
             Destroy(gameObject);
+        }
     }
     
     void ReturnImage()
