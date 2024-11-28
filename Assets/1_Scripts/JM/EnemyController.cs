@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -51,7 +52,11 @@ public class EnemyController : MonoBehaviour
         _spriteRenderer.sprite = _images[1];
         Invoke("ReturnImage", 0.1f);
         if (_hp <= 0)
+        {
+            if (SceneManager.GetActiveScene().name == "Stage3")
+                Stage3.Instance.AddScore(10);
             Destroy(gameObject);
+        }
     }
     
     void ReturnImage()
@@ -79,7 +84,7 @@ public class EnemyController : MonoBehaviour
     void Fire()
     {
         // 외부클래스에서 가져오고 싶으면 싱글톤패턴 적용
-        Vector3 dir = GameManager.Instance._playerTF.position - _myTF.position;
+        Vector3 dir = Stage3.Instance._playerTF.position - _myTF.position;
         // float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
 
         Quaternion rotate = Quaternion.identity;
