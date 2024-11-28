@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
         if (GameManager.Instance.RespawnPlayer() == true)
         {
             gameObject.SetActive(true);
-            _myTF.position = new Vector3(0, -2, 0);
+            _myTF.position = new Vector3(-7, 0, 0);
             StartCoroutine(PlayerBegine());
             GameManager.Instance.RespawnPlayer();
         }

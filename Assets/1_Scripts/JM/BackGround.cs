@@ -15,9 +15,9 @@ public class BackGround : MonoBehaviour
     void Update()
     {
         _myTF.Translate(Vector2.left * _speed * Time.deltaTime);
-        if (_myTF.position.x <= -12)
+        if (_myTF.position.x <= -19)
         {
-            _myTF.Translate(Vector2.right * 12);
+            _myTF.Translate(Vector2.right * 19);
         }
     }
 }
