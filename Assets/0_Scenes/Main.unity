@@ -521,14 +521,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be31740acf38e944f8b2f44f305769d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy: []
+  _enemy:
+  - {fileID: 9185424772970080658, guid: f51c0bac6e615e847b6300a6131337a8, type: 3}
+  - {fileID: 4459243901604843952, guid: b52b9f5a138c99946b4ced5ead512e11, type: 3}
+  - {fileID: 2489302735001917399, guid: 0933f8d45e2262846839b180ba3a9d48, type: 3}
   _myTF:
   - {fileID: 467903792}
   - {fileID: 419222217}
   - {fileID: 1939460225}
   - {fileID: 1432842469}
   - {fileID: 1087928449}
-  _playerTF: {fileID: 885443460}
+  _playerTF: {fileID: 1455883736}
   _delay: 1
 --- !u!4 &885443460
 Transform:
@@ -787,6 +790,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 299850282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1455883736 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4010097724043538301, guid: 186ff76a58d3c7945a23e63c0a2bc53a, type: 3}
+  m_PrefabInstance: {fileID: 512447885365727658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1621884013
 GameObject:
   m_ObjectHideFlags: 0
