@@ -15,6 +15,10 @@ public class Character3Controller : MonoBehaviour
     private bool hasStartedAttack1 = false; // Attack1 시작 여부
     private float lookTime = 3f; // Look 상태 지속 시간 타이머
 
+    public AudioSource AudioSource;
+    public AudioClip hurtSound;
+    public AudioClip DieSound;
+
 
     void Start()
     {
@@ -46,8 +50,12 @@ public class Character3Controller : MonoBehaviour
         currentHP -= damage;
         isHurt = true;
         animator.SetBool("isHurt", true);
+        AudioSource.Stop();
+        AudioSource.clip = hurtSound;
+        AudioSource.loop = false;
+        AudioSource.Play();
 
-        
+
         if (currentHP == maxHP / 2)
         {
             animator.SetBool("isAttack1", false);
@@ -66,6 +74,10 @@ public class Character3Controller : MonoBehaviour
             animator.SetTrigger("Death");
             if (isDead = true)
             {
+                AudioSource.Stop();
+                AudioSource.clip = DieSound;
+                AudioSource.loop = true;
+                AudioSource.Play();
                 Instantiate(DeathCloud, transform.position, Quaternion.identity);
                 Destroy(gameObject, 0.5f);
             }

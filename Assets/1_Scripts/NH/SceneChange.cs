@@ -7,6 +7,7 @@ public class SceneChange : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("ekgdkTdma");
         if (collision.tag == "Player")
         {
             // 현재 활성화된 Scene 이름 가져오기

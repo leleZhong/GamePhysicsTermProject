@@ -26,6 +26,11 @@ public class Character2Controller : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor; // 원래 색상 저장
 
+    public AudioSource AudioSource;
+    public AudioClip attackSound;
+    public AudioClip damageSound;
+    public AudioClip WalkSound;
+
     void Start()
     {
         currentHP = maxHP;
@@ -48,11 +53,18 @@ public class Character2Controller : MonoBehaviour
 
         if (distanceToTarget > attackRange)
         {
-            currentBlendValue = Mathf.Lerp(currentBlendValue, 1f, Time.deltaTime * 5);
+            currentBlendValue = Mathf.Lerp(currentBlendValue, 1f, Time.deltaTime * 5); //Walk
+            AudioSource.clip = WalkSound;
+            AudioSource.loop = true;
+            AudioSource.Play();
         }
         else
         {
-            currentBlendValue = Mathf.Lerp(currentBlendValue, 0f, Time.deltaTime * 5);
+            currentBlendValue = Mathf.Lerp(currentBlendValue, 0f, Time.deltaTime * 5); //Attack
+            AudioSource.Stop();
+            AudioSource.clip = attackSound;
+            AudioSource.loop = true;
+            AudioSource.Play();
             //SetBackgroundSpeed(0);
 
             // Spell이 실행되지 않은 경우에만 MoveAfterDelay 실행
@@ -100,6 +112,10 @@ public class Character2Controller : MonoBehaviour
         currentHP -= damage;
         isHurt = true;
         animator.SetBool("isHurt", true);
+        AudioSource.Stop();
+        AudioSource.clip = damageSound;
+        AudioSource.loop = true;
+        AudioSource.Play();
 
         StartCoroutine(HurtCooldown());
 

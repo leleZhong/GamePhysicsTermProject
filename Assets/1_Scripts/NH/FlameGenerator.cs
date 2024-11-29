@@ -10,6 +10,8 @@ public class FlameGenerator : MonoBehaviour
 
     public Transform flameSpawnPoint; // 플레임이 생성될 위치
     public float flameLifeTime = 2f; // 플레임 지속 시간
+    public AudioSource audioSource;
+    public AudioClip flameClip;
 
     public int bulletDamage = 10; // 기본 탄알 데미지
 
@@ -18,6 +20,9 @@ public class FlameGenerator : MonoBehaviour
     {
         GameObject flame = Instantiate(flamePrefab1, flameSpawnPoint.position, Quaternion.identity);
         GuidedBullet guidedBullet = flame.GetComponent<GuidedBullet>();
+        audioSource.clip = flameClip;
+        audioSource.loop = false;
+        audioSource.Play();
         guidedBullet.damage = bulletDamage;
         Destroy(flame, flameLifeTime); // 일정 시간이 지나면 플레임 제거
     }
@@ -26,6 +31,9 @@ public class FlameGenerator : MonoBehaviour
     {
         GameObject flame = Instantiate(flamePrefab2, flameSpawnPoint.position, Quaternion.identity);
         GuidedBullet guidedBullet = flame.GetComponent<GuidedBullet>();
+        audioSource.clip = flameClip;
+        audioSource.loop = false;
+        audioSource.Play();
         guidedBullet.damage = bulletDamage + 10;
         Destroy(flame, flameLifeTime); // 일정 시간이 지나면 플레임 제거
     }
@@ -34,6 +42,9 @@ public class FlameGenerator : MonoBehaviour
     {
         GameObject flame = Instantiate(flamePrefab3, flameSpawnPoint.position, Quaternion.identity);
         GuidedBullet guidedBullet = flame.GetComponent<GuidedBullet>();
+        audioSource.clip = flameClip;
+        audioSource.loop = false;
+        audioSource.Play();
         guidedBullet.damage = bulletDamage + 20;
         Destroy(flame, flameLifeTime); // 일정 시간이 지나면 플레임 제거
     }
