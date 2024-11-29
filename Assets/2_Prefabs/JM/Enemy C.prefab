@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9169764483639484454}
   - component: {fileID: 4672943715837785981}
   - component: {fileID: 7977186430191331115}
+  - component: {fileID: -367208744763989780}
   m_Layer: 0
   m_Name: Enemy C
   m_TagString: Enemy
@@ -174,10 +175,22 @@ MonoBehaviour:
   _speed: -2
   _rd: {fileID: 0}
   _myTF: {fileID: 0}
+  _bullet: {fileID: 8928948356478746922, guid: 10cbdf6d3d2e09749b90180aa2134c47, type: 3}
+  _isShooting: 0
+--- !u!114 &-367208744763989780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372465121476594368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f7425c877f73e4c999352cebbbfa14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _hp: 20
   _images:
   - {fileID: -8421458170528590454, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
   - {fileID: 3714015224569861163, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
   _spriteRenderer: {fileID: 6187539856882392326}
-  _bullet: {fileID: 8928948356478746922, guid: 10cbdf6d3d2e09749b90180aa2134c47, type: 3}
-  _isShooting: 0

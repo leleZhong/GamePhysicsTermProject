@@ -197,9 +197,9 @@ MonoBehaviour:
   _maxBoundary: {x: 7, y: 4}
   _anim: {fileID: 1084142904739493053}
   _bullet:
-  - {fileID: 0}
-  - {fileID: 0}
-  _delay: 0
+  - {fileID: 4911985188670537456, guid: 10721d697088c1a45b6c759fe49239e1, type: 3}
+  - {fileID: 2320682000151393907, guid: 644ce19d71622d641824124797312c66, type: 3}
+  _delay: 0.2
   _playerLevel: 0
   _myTF: {fileID: 4010097724043538301}
   _spriteRenderer: {fileID: 8869446522957386914}
