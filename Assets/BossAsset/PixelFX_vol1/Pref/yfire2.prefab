@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1636541461488367427}
   m_Layer: 0
   m_Name: yfire2
-  m_TagString: Untagged
+  m_TagString: enemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
