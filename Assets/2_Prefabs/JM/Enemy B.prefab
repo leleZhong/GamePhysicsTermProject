@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3369076427490623248}
   - component: {fileID: 859145635456599673}
   - component: {fileID: 8051295062079389739}
+  - component: {fileID: -2233446984247888128}
   m_Layer: 0
   m_Name: Enemy B
   m_TagString: Enemy
@@ -180,10 +181,22 @@ MonoBehaviour:
   _speed: -5
   _rd: {fileID: 0}
   _myTF: {fileID: 0}
+  _bullet: {fileID: 0}
+  _isShooting: 0
+--- !u!114 &-2233446984247888128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8071572764542499390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f7425c877f73e4c999352cebbbfa14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _hp: 10
   _images:
   - {fileID: -1147401495359466748, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
   - {fileID: -7844560889915226194, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
   _spriteRenderer: {fileID: 4535830200131786851}
-  _bullet: {fileID: 0}
-  _isShooting: 0
