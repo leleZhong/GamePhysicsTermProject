@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stage3 : MonoBehaviour
+public class StageManager : MonoBehaviour
 {
-    public static Stage3 Instance;
+    public static StageManager Instance;
 
     [Header("Stage Settings")]
     int _score;

@@ -63,9 +63,5 @@ public class GuidedBullet : MonoBehaviour
             Debug.Log("Target hit!");
             Destroy(gameObject);
         }
-        else if (collision.CompareTag("Wall")) // 벽에 닿으면 제거
-        {
-            Destroy(gameObject);
-        }
     }
 }

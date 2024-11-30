@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     // public GameObject _boomEffect; // 폭발 효과 오브젝트
 
     [Header("Player Data")]
-    public int _life; // 남은 생명
+    int _life; // 남은 생명
     public event Action<int> _onLifeChange; // 생명 변경 이벤트
 
     void Awake()
@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Start()
+    {
+        _life = 5;  // 수정 금지
     }
 
     public bool RespawnPlayer()
