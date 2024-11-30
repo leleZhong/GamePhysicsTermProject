@@ -15,7 +15,7 @@ public class Character2Controller : MonoBehaviour
     public float currentHP;
     private bool isCasting = false;
     private bool isHurt = false;
-    private bool isDead = false;
+    public bool isDead { get; private set; }= false;
     private bool hasCastSpell = false;
     private bool isSpellNoEffect = false;
 

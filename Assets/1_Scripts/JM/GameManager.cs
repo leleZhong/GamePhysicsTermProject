@@ -8,6 +8,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public Character3Controller _boss1;
+    public Character2Controller _boss2;
+    public PlayerController _playerController;
+    bool _bossHandled = false;
+
+
     [Header("UI Settings")] // UI 관련
     // public GameObject _gameOverMenu; // 게임 오버 UI
     // public GameObject _boomEffect; // 폭발 효과 오브젝트
@@ -32,6 +38,15 @@ public class GameManager : MonoBehaviour
         _life = 5;  // 수정 금지
     }
 
+    void Update()
+    {
+        if ((_boss1.isDead || _boss2.isDead) && !_bossHandled)
+        {
+            HandleBossDeath();
+            _bossHandled = true;
+        }
+    }
+
     public bool RespawnPlayer()
     {
         _life--;
@@ -50,5 +65,11 @@ public class GameManager : MonoBehaviour
     public void ButtonAct_Restart()
     {
         SceneManager.LoadScene(0);
+    }
+
+    void HandleBossDeath()
+    {
+        if (_playerController != null)
+            _playerController.ExpandBoundary();
     }
 }

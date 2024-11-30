@@ -133,4 +133,9 @@ public class PlayerController : MonoBehaviour
         }
         _isBegine = false;
     }
+
+    public void ExpandBoundary()
+    {
+        _maxBoundary += new Vector2(8, 0);
+    }
 }
