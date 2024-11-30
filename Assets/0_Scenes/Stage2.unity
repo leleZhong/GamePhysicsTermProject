@@ -3895,14 +3895,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1565199148547647011, guid: b1546586284625f40abe2fba90941cbb, type: 3}
-      propertyPath: m_Constraints
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1565199148547647011, guid: b1546586284625f40abe2fba90941cbb, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3315202539248490624, guid: b1546586284625f40abe2fba90941cbb, type: 3}
       propertyPath: Fire
       value: 
@@ -3911,38 +3903,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 4010097725195620618}
-    - target: {fileID: 3315202539248490624, guid: b1546586284625f40abe2fba90941cbb, type: 3}
-      propertyPath: WalkSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 111adfc6015dfe947bd066bcbd300ffc, type: 3}
-    - target: {fileID: 3315202539248490624, guid: b1546586284625f40abe2fba90941cbb, type: 3}
-      propertyPath: DeathSound
-      value: 
-      objectReference: {fileID: 8300000, guid: f344c37ea1746264f86a7ab583dd21da, type: 3}
-    - target: {fileID: 3315202539248490624, guid: b1546586284625f40abe2fba90941cbb, type: 3}
-      propertyPath: attackSound
-      value: 
-      objectReference: {fileID: 8300000, guid: d906ea1e9a8c0a146a51ca260e216640, type: 3}
-    - target: {fileID: 3315202539248490624, guid: b1546586284625f40abe2fba90941cbb, type: 3}
-      propertyPath: damageSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 1627cde4aae789140bb61e146bf4d36e, type: 3}
-    - target: {fileID: 5252277054442614992, guid: b1546586284625f40abe2fba90941cbb, type: 3}
-      propertyPath: m_Size.x
-      value: 0.5807976
-      objectReference: {fileID: 0}
-    - target: {fileID: 5252277054442614992, guid: b1546586284625f40abe2fba90941cbb, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.124111675
-      objectReference: {fileID: 0}
-    - target: {fileID: 6559303540247748843, guid: b1546586284625f40abe2fba90941cbb, type: 3}
-      propertyPath: m_Size.x
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6559303540247748843, guid: b1546586284625f40abe2fba90941cbb, type: 3}
-      propertyPath: m_Size.y
-      value: 0.93
-      objectReference: {fileID: 0}
     - target: {fileID: 6841138913472197601, guid: b1546586284625f40abe2fba90941cbb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 46.21
