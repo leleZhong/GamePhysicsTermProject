@@ -3911,6 +3911,22 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 4010097725195620618}
+    - target: {fileID: 3315202539248490624, guid: b1546586284625f40abe2fba90941cbb, type: 3}
+      propertyPath: WalkSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 111adfc6015dfe947bd066bcbd300ffc, type: 3}
+    - target: {fileID: 3315202539248490624, guid: b1546586284625f40abe2fba90941cbb, type: 3}
+      propertyPath: DeathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f344c37ea1746264f86a7ab583dd21da, type: 3}
+    - target: {fileID: 3315202539248490624, guid: b1546586284625f40abe2fba90941cbb, type: 3}
+      propertyPath: attackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d906ea1e9a8c0a146a51ca260e216640, type: 3}
+    - target: {fileID: 3315202539248490624, guid: b1546586284625f40abe2fba90941cbb, type: 3}
+      propertyPath: damageSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1627cde4aae789140bb61e146bf4d36e, type: 3}
     - target: {fileID: 5252277054442614992, guid: b1546586284625f40abe2fba90941cbb, type: 3}
       propertyPath: m_Size.x
       value: 0.5807976
@@ -6877,7 +6893,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 097dcfaefc4ec4254af24ee434048454, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -6975,7 +6991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7bfe79e64c4aab42aa807638bd03aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _BGMList: []
+  _BGMList:
+  - {fileID: 2084140688}
   _effectClips: []
   _settings: {fileID: 964750671}
 --- !u!4 &2088779885 stripped

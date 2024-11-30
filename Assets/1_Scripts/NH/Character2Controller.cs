@@ -30,6 +30,10 @@ public class Character2Controller : MonoBehaviour
     public AudioClip attackSound;
     public AudioClip damageSound;
     public AudioClip WalkSound;
+    public AudioClip DeathSound;
+
+    private float walkSoundCooldown = 0f; // WalkSound 재생 간격을 위한 변수
+    private float walkSoundInterval = 1.0f; // WalkSound 재생 간격 (1초)
 
     void Start()
     {
@@ -54,17 +58,12 @@ public class Character2Controller : MonoBehaviour
         if (distanceToTarget > attackRange)
         {
             currentBlendValue = Mathf.Lerp(currentBlendValue, 1f, Time.deltaTime * 5); //Walk
-            AudioSource.clip = WalkSound;
-            AudioSource.loop = true;
-            AudioSource.Play();
+            PlayWalkSound(); // WalkSound 재생 제어
         }
         else
         {
             currentBlendValue = Mathf.Lerp(currentBlendValue, 0f, Time.deltaTime * 5); //Attack
-            AudioSource.Stop();
-            AudioSource.clip = attackSound;
-            AudioSource.loop = true;
-            AudioSource.Play();
+            PlayAttackSound();
             //SetBackgroundSpeed(0);
 
             // Spell이 실행되지 않은 경우에만 MoveAfterDelay 실행
@@ -94,6 +93,36 @@ public class Character2Controller : MonoBehaviour
         }
     }
 
+    private void PlayWalkSound()
+    {
+        // WalkSound 재생 간격을 제어
+        if (Time.time >= walkSoundCooldown)
+        {
+            AudioSource.Stop();
+            AudioSource.clip = WalkSound;
+            AudioSource.loop = false; // 루프 비활성화
+            AudioSource.Play();
+
+            // 다음 재생 시간을 설정
+            walkSoundCooldown = Time.time + walkSoundInterval;
+        }
+    }
+
+    private void PlayAttackSound()
+    {
+        // WalkSound 재생 간격을 제어
+        if (Time.time >= walkSoundCooldown)
+        {
+            AudioSource.Stop();
+            AudioSource.clip = attackSound;
+            AudioSource.loop = false; // 루프 비활성화
+            AudioSource.Play();
+
+            // 다음 재생 시간을 설정
+            walkSoundCooldown = Time.time + walkSoundInterval;
+        }
+    }
+
     private void SetBackgroundSpeed(float speed)
     {
         // Hierarchy의 BackGround 아래에 있는 모든 BackGround 스크립트를 가져옴
@@ -114,7 +143,7 @@ public class Character2Controller : MonoBehaviour
         animator.SetBool("isHurt", true);
         AudioSource.Stop();
         AudioSource.clip = damageSound;
-        AudioSource.loop = true;
+        AudioSource.loop = false;
         AudioSource.Play();
 
         StartCoroutine(HurtCooldown());
@@ -128,6 +157,10 @@ public class Character2Controller : MonoBehaviour
         {
             isDead = true;
             animator.SetTrigger("Death");
+            AudioSource.Stop();
+            AudioSource.clip = DeathSound;
+            AudioSource.loop = false; // 루프 비활성화
+            AudioSource.Play();
             SetBackgroundSpeed(0);
 
         }
