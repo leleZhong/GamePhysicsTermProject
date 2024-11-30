@@ -18,9 +18,13 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
-
-        // _gameOverMenu.SetActive(false);
+        DontDestroyOnLoad(gameObject);
     }
 
     public bool RespawnPlayer()

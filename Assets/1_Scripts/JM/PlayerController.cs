@@ -24,10 +24,11 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer _spriteRenderer;
 
     [Header("Internal States")] // 내부적으로 관리하는 상태 변수
-    private float _currentTime; // 시간 체크
-    private bool _isBegine; // 무적 상태 확인
-    private WaitForSeconds _wait = new WaitForSeconds(0.1f); // 반복 대기 시간
-    private Color[] _color; // 무적 상태 시 색상 변화
+    float _currentTime; // 시간 체크
+    bool _isBegine; // 무적 상태 확인
+    bool _isRespawning; // 리스폰 중 여부 확인
+    WaitForSeconds _wait = new WaitForSeconds(0.1f); // 반복 대기 시간
+    Color[] _color; // 무적 상태 시 색상 변화
     
     void Awake()
     {
@@ -91,16 +92,14 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (_isBegine)
+        if (_isBegine || _isRespawning)  // 무적 상태면 충돌 무시
             return;
+
         switch (other.tag)
         {
-            case "enemy":
-                gameObject.SetActive(false);
-                Destroy(other.gameObject);
-                Invoke("ShowPlayer", 2);
-                break;
+            case "Enemy":
             case "enemyBullet":
+            _isRespawning = true;
                 gameObject.SetActive(false);
                 Destroy(other.gameObject);
                 Invoke("ShowPlayer", 2);
@@ -112,13 +111,13 @@ public class PlayerController : MonoBehaviour
 
     void ShowPlayer()
     {
-        if (GameManager.Instance.RespawnPlayer() == true)
+        if (GameManager.Instance.RespawnPlayer())
         {
             gameObject.SetActive(true);
             _myTF.position = new Vector3(-7, 0, 0);
-            StartCoroutine(PlayerBegine());
-            GameManager.Instance.RespawnPlayer();
+            StartCoroutine(PlayerBegine()); // 무적 상태 시작
         }
+        _isRespawning = false; // 리스폰 중 상태 종료
     }
 
     IEnumerator PlayerBegine()
