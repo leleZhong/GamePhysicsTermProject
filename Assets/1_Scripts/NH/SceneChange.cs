@@ -15,6 +15,9 @@ public class SceneChange : MonoBehaviour
             // 현재 Scene 이름을 바탕으로 switch 실행
             switch (currentScene.name)
             {
+                case "Tutorial":
+                    SceneManager.LoadScene("Stage1");
+                        break;
                 case "Stage1":
                     SceneManager.LoadScene("Stage2");
                     break;
