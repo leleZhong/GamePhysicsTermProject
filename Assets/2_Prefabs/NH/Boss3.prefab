@@ -45,9 +45,11 @@ GameObject:
   - component: {fileID: 1473738906875390669}
   - component: {fileID: 2335722694270048101}
   - component: {fileID: 7381073059272906225}
+  - component: {fileID: 692015558097401808}
+  - component: {fileID: 1029517539306614680}
   m_Layer: 0
   m_Name: Boss3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,13 +155,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ffb64f6a855864492ba57db880d7db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flamePrefab1: {fileID: 6403261397353019590, guid: d0189a64ce8fb2e498bb8955d8e6034c, type: 3}
-  flamePrefab2: {fileID: 2129199642521142654, guid: d98eac95d66b11443bed176142c993c8, type: 3}
-  flamePrefab3: {fileID: 4769284792324983907, guid: 1e623676ff6c51a45b12c0b2f0a27082, type: 3}
+  flamePrefab1: {fileID: 209103260801149857, guid: d0febcca11264554b90016f5a6c96c4c, type: 3}
+  flamePrefab2: {fileID: 3510909149252864203, guid: 9df183d3b140b8a42b7b1e0abbd12133, type: 3}
+  flamePrefab3: {fileID: 5759856770489776289, guid: 5ee4773bcc64c56418f3d260daa91413, type: 3}
   flameSpawnPoint: {fileID: 6946030189848310676}
   flameLifeTime: 3
-  audioSource: {fileID: 0}
-  flameClip: {fileID: 0}
+  audioSource: {fileID: 7381073059272906225}
+  flameClip: {fileID: 8300000, guid: e82e1e4d7002a7c4b83ad7fb7a637eaa, type: 3}
   bulletDamage: 10
 --- !u!114 &2335722694270048101
 MonoBehaviour:
@@ -178,9 +180,9 @@ MonoBehaviour:
   currentHP: 0
   assignedPlayer: {fileID: 0}
   DeathCloud: {fileID: 7823101997077020492, guid: add452eeb99cdc540b6ef07bdad80dcf, type: 3}
-  AudioSource: {fileID: 0}
-  hurtSound: {fileID: 0}
-  DieSound: {fileID: 0}
+  AudioSource: {fileID: 7381073059272906225}
+  hurtSound: {fileID: 8300000, guid: 95682f61a8ab77e4394b90b49cffc493, type: 3}
+  DieSound: {fileID: 8300000, guid: 6e1565032422bdf409157cbfcc4a7cd0, type: 3}
 --- !u!82 &7381073059272906225
 AudioSource:
   m_ObjectHideFlags: 0
@@ -192,7 +194,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -277,3 +279,53 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!70 &692015558097401808
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8412846524182644497}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.8125, y: 1}
+  m_Direction: 0
+--- !u!114 &1029517539306614680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8412846524182644497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f7425c877f73e4c999352cebbbfa14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hp: 0
+  _images: []
+  _spriteRenderer: {fileID: 0}
