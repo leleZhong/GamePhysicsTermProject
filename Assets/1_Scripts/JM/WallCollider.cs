@@ -11,7 +11,7 @@ public class WallCollider : MonoBehaviour
             case "bullet":  
                 PoolManager.Despawn(other.gameObject);
                 break;
-            case "enemy":
+            case "Enemy":
             case "enemyBullet":
                 Destroy(other.gameObject);
                 break;
