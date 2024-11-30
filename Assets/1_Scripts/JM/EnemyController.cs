@@ -10,13 +10,6 @@ public class EnemyController : MonoBehaviour
     public Rigidbody2D _rd;
     public Transform _myTF;
 
-    [Header("Health Settings")]
-    public int _hp;
-
-    [Header("Visual Settings")]
-    public Sprite[] _images; // 적 상태를 나타내는 스프라이트 배열
-    public SpriteRenderer _spriteRenderer;
-
     [Header("Attack Settings")]
     public Transform _bullet;
     public bool _isShooting;
@@ -43,41 +36,6 @@ public class EnemyController : MonoBehaviour
                 Fire();
                 _currentTime = Time.time + Random.Range(2f, 4f);
             }
-        }
-    }
-
-    public void OnHit(int dmg)
-    {
-        _hp -= dmg;
-        _spriteRenderer.sprite = _images[1];
-        Invoke("ReturnImage", 0.1f);
-        if (_hp <= 0)
-        {
-            if (SceneManager.GetActiveScene().name == "Stage3")
-                Stage3.Instance.AddScore(10);
-            Destroy(gameObject);
-        }
-    }
-    
-    void ReturnImage()
-    {
-        _spriteRenderer.sprite = _images[0];
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        switch (other.tag)
-        {
-            case "bullet" :
-                Bullet bullet = other.GetComponent<Bullet>();
-
-                OnHit(bullet._pow);
-                PoolManager.Despawn(other.gameObject);
-                break;
-            
-            case "Player" :
-                other.gameObject.SetActive(false);
-                break;
         }
     }
 

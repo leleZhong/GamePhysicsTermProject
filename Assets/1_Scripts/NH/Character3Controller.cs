@@ -72,7 +72,7 @@ public class Character3Controller : MonoBehaviour
         {
             isDead = true;
             animator.SetTrigger("Death");
-            if (isDead = true)
+            if (isDead == true)
             {
                 AudioSource.Stop();
                 AudioSource.clip = DieSound;
@@ -88,10 +88,9 @@ public class Character3Controller : MonoBehaviour
     // Look 상태에서 3초 뒤 Attack1으로 전환
     private IEnumerator StartAttack1AfterLook()
     {
-       yield return new WaitForSeconds(lookTime);
+        yield return new WaitForSeconds(lookTime);
 
        animator.SetBool("isAttack1", true); // Attack1 상태로 전환
-       
     }
 }
 
