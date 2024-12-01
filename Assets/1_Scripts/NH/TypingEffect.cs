@@ -9,7 +9,7 @@ public class TypingEffect : MonoBehaviour
     public float typingSpeed = 0.05f; // 글자가 하나씩 나타나는 속도
     public ParticleSystem typingCompleteEffect; // 타이핑 완료 후 실행할 파티클 시스템
 
-    private string fullText = "E N D"; // 전체 텍스트
+    private string fullText = " E N D "; // 전체 텍스트
     private string currentText = ""; // 현재까지 표시된 텍스트
 
     void Start()

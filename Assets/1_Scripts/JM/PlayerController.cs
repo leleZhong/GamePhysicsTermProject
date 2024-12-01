@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour
         if (_isBegine || _isRespawning)  // 무적 상태면 충돌 무시
             return;
 
+        //TODO : 보스 닿으면 안없어지게
         switch (other.tag)
         {
             case "Enemy":
