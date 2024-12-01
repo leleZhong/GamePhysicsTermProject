@@ -18,7 +18,13 @@ public class Boss3Controller : MonoBehaviour
     public float pattern1Interval = 0.5f; // 패턴 1의 연속 발사 간격
     int pattern1Shots = 4; // 패턴 1에서 발사할 총알 개수
     bool isPattern2Active = false; // 패턴 2 활성화 여부
-    
+
+    public AudioSource AudioSource;
+    public AudioClip attackSound;
+    public AudioClip attackSound2;
+    public AudioClip damageSound;
+    public AudioClip DeathSound;
+
     void Update()
     {
         if (_damageHandler.GetCurrentHealth() <= _damageHandler._maxHP * 0.8f && !isPattern2Active)
@@ -40,6 +46,10 @@ public class Boss3Controller : MonoBehaviour
         {
             _animator.SetBool("Pattern1", true);
             FireBullet1();
+            AudioSource.Stop();
+            AudioSource.clip = attackSound;
+            AudioSource.loop = false; // 루프 비활성화
+            AudioSource.Play();
             yield return new WaitForSeconds(pattern1Interval); // 총알 간격
             _animator.SetBool("Pattern1", false);
         }
@@ -75,6 +85,10 @@ public class Boss3Controller : MonoBehaviour
                 {
                     Vector2 direction = rotation * Vector2.up; // 회전 값을 기준으로 방향 계산
                     bulletRb.velocity = direction * 10f; // 속도 설정
+                    AudioSource.Stop();
+                    AudioSource.clip = attackSound2;
+                    AudioSource.loop = false; // 루프 비활성화
+                    AudioSource.Play();
                 }
             }
         }
