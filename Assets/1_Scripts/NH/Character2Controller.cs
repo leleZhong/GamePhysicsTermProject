@@ -11,6 +11,7 @@ public class Character2Controller : MonoBehaviour
     public Animator animator;
     public float spellNoEffectDuration = 2.0f;
     public GameObject Fire;
+    public GameObject Sequence;
 
     private float currentBlendValue = 0.5f;
     public float currentHP;
@@ -177,6 +178,7 @@ public class Character2Controller : MonoBehaviour
         // Timeline이 설정된 경우 재생
         if (deathTimeline != null)
         {
+            Sequence.SetActive(true);
             deathTimeline.Play(); // 타임라인 재생
             yield return new WaitForSeconds((float)deathTimeline.duration); // 타임라인 재생 시간 동안 대기
         }
