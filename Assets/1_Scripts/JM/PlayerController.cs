@@ -111,6 +111,10 @@ public class PlayerController : MonoBehaviour
                 // 보스는 파괴하지 않음
                 Invoke("ShowPlayer", 2);
                 break;
+            case "gem":
+                GameManager.Instance.SetLife(5);
+                Destroy(other.gameObject);
+                break;
         }
     }
 
