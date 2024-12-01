@@ -3381,11 +3381,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5260572382779035084, guid: c5f8f079905bce04f945cd8ff4ba545a, type: 3}
   m_PrefabInstance: {fileID: 1198146798}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1208606551 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3308037932011092630, guid: 6aac468b1f618e04da54a41767acb196, type: 3}
-  m_PrefabInstance: {fileID: 1506663175}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1231573613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3564026850829729314, guid: 72a905bcc22e3e443be6f48bfb173c00, type: 3}
@@ -4208,9 +4203,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f7425c877f73e4c999352cebbbfa14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHP: 30
   _hp: 30
   _images: []
   _spriteRenderer: {fileID: 0}
+  _anim: {fileID: 0}
+  _bossController: {fileID: 0}
 --- !u!1 &1554908356
 GameObject:
   m_ObjectHideFlags: 0
