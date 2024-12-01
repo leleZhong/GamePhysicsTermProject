@@ -5,7 +5,7 @@ public class GuidedBullet : MonoBehaviour
     public GameObject target; // 목표 타겟
     public float speed = 5f; // 탄약 속도
     public float rotateSpeed = 200f; // 회전 속도
-    public float hitProbability = 0.3f; // 적중 확률 (30%)
+    public float hitProbability = 0.1f; // 적중 확률 (10%)
     public int damage = 10; // 탄알 데미지 (기본값)
 
     private bool willHit = true;
@@ -19,7 +19,7 @@ public class GuidedBullet : MonoBehaviour
     void Start()
     {
         // 발사 순간 적중 여부 결정
-        willHit = Random.value <= hitProbability; // 30% 확률로 true
+        willHit = Random.value <= hitProbability; // 10% 확률로 true
 
         // 빗나갈 경우의 방향 설정
         if (!willHit)
