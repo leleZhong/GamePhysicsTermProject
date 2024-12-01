@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     int _life; // 남은 생명
     public event Action<int> _onLifeChange; // 생명 변경 이벤트
 
+    public Transform _gemTF; // 젬 TF
+    public Transform _gem;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -71,5 +74,12 @@ public class GameManager : MonoBehaviour
     {
         if (_playerController != null)
             _playerController.ExpandBoundary();
+        Instantiate(_gem, _gemTF);
+    }
+
+    public void SetLife(int value)
+    {
+        _life = value;
+        _onLifeChange?.Invoke(_life);
     }
 }
