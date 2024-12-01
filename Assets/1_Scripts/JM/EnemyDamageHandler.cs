@@ -53,6 +53,7 @@ public class EnemyDamageHandler : MonoBehaviour
         {
             StageManager.Instance.AddScore(10);
             if (gameObject.tag == "Boss" && SceneManager.GetActiveScene().name == "Stage3")
+                //_anim.SetTrigger("isDead");
                 GameManager.Instance.HandleBossDeath();
             Destroy(gameObject);
         }

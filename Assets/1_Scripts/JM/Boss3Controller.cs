@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Boss3Controller : MonoBehaviour
 {
+
+    public Animator _animator;
+
     [Header("References")]
     public Transform _myTF;
     public EnemyDamageHandler _damageHandler;
@@ -35,8 +38,10 @@ public class Boss3Controller : MonoBehaviour
     {
         for (int i = 0; i < pattern1Shots; i++)
         {
+            _animator.SetBool("Pattern1", true);
             FireBullet1();
             yield return new WaitForSeconds(pattern1Interval); // ÃÑ¾Ë °£°Ý
+            _animator.SetBool("Pattern1", false);
         }
     }
 
