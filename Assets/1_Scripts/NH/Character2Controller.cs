@@ -164,7 +164,7 @@ public class Character2Controller : MonoBehaviour
         }
     }
 
-     private IEnumerator HandleDeath()
+    private IEnumerator HandleDeath()
     {
         // Death 애니메이션 재생
         animator.SetTrigger("Death");

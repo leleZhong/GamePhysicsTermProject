@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    void HandleBossDeath()
+    public void HandleBossDeath()
     {
         if (_playerController != null)
             _playerController.ExpandBoundary();

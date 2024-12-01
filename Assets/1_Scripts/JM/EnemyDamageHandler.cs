@@ -7,11 +7,22 @@ using UnityEngine.SceneManagement;
 public class EnemyDamageHandler : MonoBehaviour
 {
     [Header("Health Settings")]
-    public int _hp;
+    public float _maxHP;
+    [SerializeField]
+    float _hp;
 
     [Header("Visual Settings")]
     public Sprite[] _images; // 적 상태를 나타내는 스프라이트 배열
     public SpriteRenderer _spriteRenderer;
+    public Animator _anim;
+
+    [Header("Boss Settings")]
+    public Boss3Controller _bossController; // 보스 컨트롤러 연결
+
+    void Awake()
+    {
+        _hp = _maxHP;
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -41,13 +52,24 @@ public class EnemyDamageHandler : MonoBehaviour
         if (_hp <= 0)
         {
             StageManager.Instance.AddScore(10);
+            if (gameObject.tag == "Boss" && SceneManager.GetActiveScene().name == "Stage3")
+                GameManager.Instance.HandleBossDeath();
             Destroy(gameObject);
+        }
+        if (gameObject.tag == "Boss" && SceneManager.GetActiveScene().name == "Stage3")
+        {
+            _anim.SetTrigger("OnHit");
         }
     }
     
     void ReturnImage()
     {
         _spriteRenderer.sprite = _images[0];
+    }
+
+    public float GetCurrentHealth()
+    {
+        return _hp;
     }
 
 }

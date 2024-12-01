@@ -168,7 +168,6 @@ MonoBehaviour:
   _myTF: {fileID: 0}
   animator: {fileID: 6464016640556332430}
   _bullet: {fileID: 0}
-  _isShooting: 0
 --- !u!114 &1706064298186583414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,9 +180,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f7425c877f73e4c999352cebbbfa14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHP: 2
   _hp: 2
   _images: []
   _spriteRenderer: {fileID: 9144943869867736524}
+  _anim: {fileID: 0}
+  _bossController: {fileID: 0}
 --- !u!95 &6464016640556332430
 Animator:
   serializedVersion: 5
