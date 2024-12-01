@@ -20,7 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Scenes/Stage3.unity
     guid: 2bd4a45f14c1b3d4abc91f302901341b
-  - enabled: 1
+  - enabled: 0
     path: Assets/0_Scenes/Ending.unity
     guid: 3bf13e274b7e2fa43bd1b4abbd4b555f
+  - enabled: 1
+    path: Assets/0_Scenes/EndingCredit.unity
+    guid: 492e6eb3084744b408eaacf846af081d
   m_configObjects: {}

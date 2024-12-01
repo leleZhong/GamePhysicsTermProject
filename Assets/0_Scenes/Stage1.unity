@@ -550,55 +550,6 @@ MonoBehaviour:
   _playerTF: {fileID: 1893359756}
   _delay: 0.3
   _bossPrefab: {fileID: 7631826384756254316, guid: 7e272d06fc7359244953410637631e47, type: 3}
---- !u!1 &798698828
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 798698829}
-  - component: {fileID: 798698830}
-  m_Layer: 0
-  m_Name: Settings
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &798698829
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798698828}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2142083591}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &798698830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798698828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a444a4c854c72c49bdaded5a8fc71db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _settingsPanelPrefab: {fileID: 0}
-  _BGMSlider: {fileID: 0}
-  _effectSlider: {fileID: 0}
-  _closeButton: {fileID: 0}
-  _soundManager: {fileID: 0}
 --- !u!1 &1061787890
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,7 +939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 484331108580649446, guid: 6aac468b1f618e04da54a41767acb196, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1195,7 +1146,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1824100208}
-  - component: {fileID: 1824100210}
   - component: {fileID: 1824100209}
   m_Layer: 0
   m_Name: SoundManager
@@ -1229,7 +1179,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4e6202e97e542482abbbadaddf0423ad, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 28174c424d16e44d3bd7f41a32eaec47, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1315,22 +1265,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1824100210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1824100207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7bfe79e64c4aab42aa807638bd03aba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _BGMList:
-  - {fileID: 1824100209}
-  _effectClips: []
-  _settings: {fileID: 0}
 --- !u!1001 &1882574255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1428,7 +1362,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1824100208}
-  - {fileID: 798698829}
   - {fileID: 268566954}
   - {fileID: 417598265}
   - {fileID: 1061787891}

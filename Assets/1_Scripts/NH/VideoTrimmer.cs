@@ -20,7 +20,7 @@ public class VideoTrimmer : MonoBehaviour
         if (!sceneChangeTriggered) // 씬 변경이 중복되지 않도록 확인
         {
             sceneChangeTriggered = true;
-            Invoke("ChangeScene", 1.0f); // 1초 후 씬 변경
+            Invoke("ChangeScene", 0.1f); // 1초 후 씬 변경
         }
     }
 
