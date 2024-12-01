@@ -549,6 +549,7 @@ MonoBehaviour:
   - {fileID: 1797266542}
   _playerTF: {fileID: 1893359756}
   _delay: 0.3
+  _bossPrefab: {fileID: 7631826384756254316, guid: 7e272d06fc7359244953410637631e47, type: 3}
 --- !u!1 &798698828
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,6 +643,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be31740acf38e944f8b2f44f305769d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boss1: {fileID: 0}
+  _boss2: {fileID: 0}
+  _playerController: {fileID: 0}
 --- !u!1 &1176891045
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,6 +985,10 @@ PrefabInstance:
     - target: {fileID: 484331108580649446, guid: 6aac468b1f618e04da54a41767acb196, type: 3}
       propertyPath: m_Name
       value: SpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 484331108580649446, guid: 6aac468b1f618e04da54a41767acb196, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1482,6 +1490,10 @@ PrefabInstance:
     - target: {fileID: 8412846524182644497, guid: 7e272d06fc7359244953410637631e47, type: 3}
       propertyPath: m_Name
       value: Boss3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8412846524182644497, guid: 7e272d06fc7359244953410637631e47, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

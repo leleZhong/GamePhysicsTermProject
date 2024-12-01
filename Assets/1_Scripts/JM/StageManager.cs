@@ -19,6 +19,10 @@ public class StageManager : MonoBehaviour
     public float _delay; // 적 생성 딜레이
     float _currentTime; // 내부 시간 확인
 
+    [Header("Boss Settings")]
+    public Transform _bossPrefab; // 보스 프리팹
+    private List<GameObject> _spawnedEnemies = new List<GameObject>();
+
     void Awake()
     {
         Instance = this;
@@ -42,8 +46,27 @@ public class StageManager : MonoBehaviour
         if (_score >= 200 && !_isBossSpawned)
         {
             // 보스 프리팹 생성
-            _isBossSpawned = true;
+            SpawnBoss();
         }
+    }
+
+    void SpawnBoss()
+    {
+        // 잡몹 제거
+        foreach (GameObject enemy in _spawnedEnemies)
+        {
+            if (enemy != null)
+            {
+                Destroy(enemy);
+            }
+        }
+        _spawnedEnemies.Clear(); // 적 리스트 초기화
+
+        // 보스 생성
+        Instantiate(_bossPrefab);
+        _isBossSpawned = true;
+
+        Debug.Log("보스 등장!");
     }
 
     void Generate()

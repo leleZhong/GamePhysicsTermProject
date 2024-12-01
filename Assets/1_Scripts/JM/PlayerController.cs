@@ -99,6 +99,7 @@ public class PlayerController : MonoBehaviour
         {
             case "Enemy":
             case "enemyBullet":
+            case "Boss":
             _isRespawning = true;
                 gameObject.SetActive(false);
                 Destroy(other.gameObject);
