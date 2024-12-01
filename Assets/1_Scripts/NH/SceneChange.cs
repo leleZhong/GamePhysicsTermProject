@@ -25,7 +25,7 @@ public class SceneChange : MonoBehaviour
                     SceneManager.LoadScene("Stage3");
                     break;
                 case "Stage3":
-                    SceneManager.LoadScene("Ending");
+                    SceneManager.LoadScene("Ending Credit");
                     break;
                 default:
                     Debug.LogError("Unknown scene: " + currentScene.name);

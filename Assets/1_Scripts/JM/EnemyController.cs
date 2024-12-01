@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
     public float _speed; // 이동 속도
     public Rigidbody2D _rd;
     public Transform _myTF;
+    public Animator animator;
+
 
     [Header("Attack Settings")]
     public Transform _bullet;
@@ -25,6 +27,7 @@ public class EnemyController : MonoBehaviour
     {
         _currentTime = 0;
         _rd.velocity = _myTF.up * _speed;
+        animator.SetBool("isWalk", true);
     }
 
     void Update()

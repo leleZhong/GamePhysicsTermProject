@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7484605841237625617}
   - component: {fileID: 5812582301898036137}
   - component: {fileID: 3953071992668448513}
-  - component: {fileID: 7886286726191570862}
+  - component: {fileID: -1656455360741058585}
   m_Layer: 0
   m_Name: Jelly 1
   m_TagString: Enemy
@@ -176,6 +176,7 @@ MonoBehaviour:
   _speed: -3
   _rd: {fileID: 0}
   _myTF: {fileID: 0}
+  animator: {fileID: -1656455360741058585}
   _bullet: {fileID: 0}
   _isShooting: 0
 --- !u!114 &3953071992668448513
@@ -193,18 +194,24 @@ MonoBehaviour:
   _hp: 5
   _images: []
   _spriteRenderer: {fileID: 925979610449603900}
---- !u!111 &7886286726191570862
-Animation:
+--- !u!95 &-1656455360741058585
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5134452193268178963}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: d30381fa4690401478cdf06d6189472b, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0d3842a994495234589cb6d54c1215e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

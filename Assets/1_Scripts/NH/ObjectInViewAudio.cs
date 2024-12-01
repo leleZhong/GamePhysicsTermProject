@@ -41,10 +41,10 @@ public class ObjectInViewAudio : MonoBehaviour
         }
         else
         {
-            //if (audioSource.isPlaying) // 소리가 재생 중이면 중지
-            //{
-            //    audioSource.Stop();
-            //}
+            if (audioSource.isPlaying) // 소리가 재생 중이면 중지
+            {
+                audioSource.Stop();
+            }
         }
     }
 

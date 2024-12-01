@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Character2Controller : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class Character2Controller : MonoBehaviour
 
     private float walkSoundCooldown = 0f; // WalkSound 재생 간격을 위한 변수
     private float walkSoundInterval = 1.0f; // WalkSound 재생 간격 (1초)
+
+    public PlayableDirector deathTimeline;
 
     void Start()
     {
@@ -156,16 +159,31 @@ public class Character2Controller : MonoBehaviour
         if (currentHP <= 0 && !isDead)
         {
             isDead = true;
-            animator.SetTrigger("Death");
-            AudioSource.Stop();
-            AudioSource.clip = DeathSound;
-            AudioSource.loop = false; // 루프 비활성화
-            AudioSource.Play();
-            SetBackgroundSpeed(0);
-
+            StartCoroutine(HandleDeath());
         }
     }
 
+     private IEnumerator HandleDeath()
+    {
+        // Death 애니메이션 재생
+        animator.SetTrigger("Death");
+        AudioSource.Stop();
+        AudioSource.clip = DeathSound;
+        AudioSource.loop = false; // 루프 비활성화
+        AudioSource.Play();
+
+        SetBackgroundSpeed(0);
+
+        // Timeline이 설정된 경우 재생
+        if (deathTimeline != null)
+        {
+            deathTimeline.Play(); // 타임라인 재생
+            yield return new WaitForSeconds((float)deathTimeline.duration); // 타임라인 재생 시간 동안 대기
+        }
+
+        // 객체 제거
+        Destroy(gameObject);
+    }
     private IEnumerator HurtCooldown()
     {
         yield return new WaitForSeconds(0.5f);
