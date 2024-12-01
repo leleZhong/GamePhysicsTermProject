@@ -100,13 +100,16 @@ public class PlayerController : MonoBehaviour
         {
             case "Enemy":
             case "enemyBullet":
-            case "Boss":
-            _isRespawning = true;
+                _isRespawning = true;
                 gameObject.SetActive(false);
                 Destroy(other.gameObject);
                 Invoke("ShowPlayer", 2);
                 break;
-            case "item":
+            case "Boss":
+                _isRespawning = true;
+                gameObject.SetActive(false);
+                // 보스는 파괴하지 않음
+                Invoke("ShowPlayer", 2);
                 break;
         }
     }

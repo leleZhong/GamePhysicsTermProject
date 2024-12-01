@@ -137,6 +137,7 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 1627cde4aae789140bb61e146bf4d36e, type: 3}
   WalkSound: {fileID: 8300000, guid: 111adfc6015dfe947bd066bcbd300ffc, type: 3}
   DeathSound: {fileID: 8300000, guid: f344c37ea1746264f86a7ab583dd21da, type: 3}
+  deathTimeline: {fileID: 0}
 --- !u!70 &5252277054442614992
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
