@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
 
     public Character3Controller _boss1;
     public Character2Controller _boss2;
-    public Boss3Controller _boss3;
     public PlayerController _playerController;
     bool _bossHandled = false;
 
@@ -44,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (((_boss1 != null && _boss1.isDead) || (_boss2 != null && _boss2.isDead) || (_boss3 != null && _boss3.isDead)) && !_bossHandled)
+        if (((_boss1 != null && _boss1.isDead) || (_boss2 != null && _boss2.isDead)) && !_bossHandled)
         {
             HandleBossDeath();
             _bossHandled = true;
@@ -71,7 +70,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    void HandleBossDeath()
+    public void HandleBossDeath()
     {
         if (_playerController != null)
             _playerController.ExpandBoundary();

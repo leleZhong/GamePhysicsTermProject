@@ -7,7 +7,6 @@ public class Boss3Controller : MonoBehaviour
     [Header("References")]
     public Transform _myTF;
     public EnemyDamageHandler _damageHandler;
-    public bool isDead { get; private set; } = false;
 
     [Header("Attack Settings")]
     public Transform _bullet1; // ÆÐÅÏ 1 ÃÑ¾Ë
