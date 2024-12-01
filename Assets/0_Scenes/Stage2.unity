@@ -3376,6 +3376,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5260572382779035084, guid: c5f8f079905bce04f945cd8ff4ba545a, type: 3}
   m_PrefabInstance: {fileID: 1198146798}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1208606551 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3308037932011092630, guid: 6aac468b1f618e04da54a41767acb196, type: 3}
+  m_PrefabInstance: {fileID: 1506663175}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1231573613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3564026850829729314, guid: 72a905bcc22e3e443be6f48bfb173c00, type: 3}
@@ -4967,6 +4972,8 @@ MonoBehaviour:
   _boss1: {fileID: 0}
   _boss2: {fileID: 1482363269}
   _playerController: {fileID: 3428721775423261455}
+  _gemTF: {fileID: 1208606551}
+  _gem: {fileID: 8996860187389971237, guid: e3470d94169b01e45a4de5c8ce9da56e, type: 3}
 --- !u!4 &1840788921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3564026850829729314, guid: ed925410cd097664ea4b9e3e758f02a4, type: 3}

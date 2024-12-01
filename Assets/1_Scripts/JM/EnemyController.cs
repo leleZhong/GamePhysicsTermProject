@@ -14,7 +14,6 @@ public class EnemyController : MonoBehaviour
 
     [Header("Attack Settings")]
     public Transform _bullet;
-    public bool _isShooting;
     float _currentTime; // 발사 간격 타이머
 
     void Awake()
@@ -27,7 +26,8 @@ public class EnemyController : MonoBehaviour
     {
         _currentTime = 0;
         _rd.velocity = _myTF.up * _speed;
-        animator.SetBool("isWalk", true);
+        if ( animator != null)
+            animator.SetBool("isWalk", true);
     }
 
     void Update()

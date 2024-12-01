@@ -181,8 +181,8 @@ MonoBehaviour:
   _speed: -5
   _rd: {fileID: 0}
   _myTF: {fileID: 0}
+  animator: {fileID: 0}
   _bullet: {fileID: 0}
-  _isShooting: 0
 --- !u!114 &-2233446984247888128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,8 +195,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f7425c877f73e4c999352cebbbfa14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHP: 10
   _hp: 10
   _images:
   - {fileID: -1147401495359466748, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
   - {fileID: -7844560889915226194, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
   _spriteRenderer: {fileID: 4535830200131786851}
+  _anim: {fileID: 0}
+  _bossController: {fileID: 0}
