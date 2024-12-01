@@ -598,6 +598,13 @@ MonoBehaviour:
   _boss1: {fileID: 2543607263251771717}
   _boss2: {fileID: 0}
   _playerController: {fileID: 1893359758}
+  _gemTF: {fileID: 1158907023}
+  _gem: {fileID: 8996860187389971237, guid: e3470d94169b01e45a4de5c8ce9da56e, type: 3}
+--- !u!4 &1158907023 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3308037932011092630, guid: 6aac468b1f618e04da54a41767acb196, type: 3}
+  m_PrefabInstance: {fileID: 1494110448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1176891045
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,6 +948,10 @@ PrefabInstance:
     - target: {fileID: 484331108580649446, guid: 6aac468b1f618e04da54a41767acb196, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308037932011092630, guid: 6aac468b1f618e04da54a41767acb196, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
