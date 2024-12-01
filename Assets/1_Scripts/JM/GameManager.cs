@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         _life--;
         if(_life < 0)
         {
-            // _gameOverMenu.SetActive(true);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             return false;
         }
         else
