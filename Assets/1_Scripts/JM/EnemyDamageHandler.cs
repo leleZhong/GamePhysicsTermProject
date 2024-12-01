@@ -40,11 +40,8 @@ public class EnemyDamageHandler : MonoBehaviour
         }
         if (_hp <= 0)
         {
-            if (SceneManager.GetActiveScene().name != "Stage2")
-            {
-                StageManager.Instance.AddScore(10);
-                Destroy(gameObject);
-            }
+            StageManager.Instance.AddScore(10);
+            Destroy(gameObject);
         }
     }
     

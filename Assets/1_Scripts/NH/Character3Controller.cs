@@ -84,6 +84,7 @@ public class Character3Controller : MonoBehaviour
                 AudioSource.loop = true;
                 AudioSource.Play();
                 Instantiate(DeathCloud, transform.position, Quaternion.identity);
+                Destroy(GameObject.Find("AppearBoss"));
                 Destroy(gameObject, 1f);
             }
         }

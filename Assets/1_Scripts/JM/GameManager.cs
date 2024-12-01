@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if ((_boss1.isDead || _boss2.isDead) && !_bossHandled)
+        if (((_boss1 != null && _boss1.isDead) || (_boss2 != null && _boss2.isDead)) && !_bossHandled)
         {
             HandleBossDeath();
             _bossHandled = true;
