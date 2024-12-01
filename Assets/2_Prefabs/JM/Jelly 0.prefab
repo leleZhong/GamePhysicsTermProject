@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5461661268170000148}
   - component: {fileID: 3916985035530374130}
   - component: {fileID: 1706064298186583414}
+  - component: {fileID: -7387529372551229855}
   m_Layer: 0
   m_Name: Jelly 0
   m_TagString: Enemy
@@ -182,3 +183,18 @@ MonoBehaviour:
   _hp: 3
   _images: []
   _spriteRenderer: {fileID: 9144943869867736524}
+--- !u!111 &-7387529372551229855
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9131800232803075258}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: a12d959af47d9694980967283ad3e8f6, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

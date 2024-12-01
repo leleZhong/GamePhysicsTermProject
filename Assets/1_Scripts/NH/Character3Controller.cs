@@ -50,21 +50,26 @@ public class Character3Controller : MonoBehaviour
         currentHP -= damage;
         isHurt = true;
         animator.SetBool("isHurt", true);
+
+        // 상태 전환을 방지하기 위해 다른 파라미터 리셋
+        animator.SetBool("isAttack1", false);
+        animator.SetBool("isAttack2", false);
+        animator.SetBool("isAttack3", false);
+
         AudioSource.Stop();
         AudioSource.clip = hurtSound;
         AudioSource.loop = false;
         AudioSource.Play();
 
+        StartCoroutine(HurtCooldown());
 
-        if (currentHP == maxHP / 2)
+        if (currentHP <= maxHP / 2)
         {
-            animator.SetBool("isAttack1", false);
             animator.SetBool("isAttack2", true);
         }
 
-        if (currentHP == maxHP / 4)
+        if (currentHP <= maxHP / 4)
         {
-            animator.SetBool("isAttack2", false);
             animator.SetBool("isAttack3", true);
         }
 
@@ -79,9 +84,8 @@ public class Character3Controller : MonoBehaviour
                 AudioSource.loop = true;
                 AudioSource.Play();
                 Instantiate(DeathCloud, transform.position, Quaternion.identity);
-                Destroy(gameObject, 0.5f);
+                Destroy(gameObject, 1f);
             }
-
         }
     }
 
@@ -91,6 +95,13 @@ public class Character3Controller : MonoBehaviour
         yield return new WaitForSeconds(lookTime);
 
        animator.SetBool("isAttack1", true); // Attack1 상태로 전환
+    }
+
+    private IEnumerator HurtCooldown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        isHurt = false;
+        animator.SetBool("isHurt", false);
     }
 }
 
