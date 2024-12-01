@@ -184,6 +184,7 @@ public class Character2Controller : MonoBehaviour
         }
 
         // °´Ã¼ Á¦°Å
+        Destroy(GameObject.Find("AppearBoss"));
         Destroy(gameObject);
     }
     private IEnumerator HurtCooldown()

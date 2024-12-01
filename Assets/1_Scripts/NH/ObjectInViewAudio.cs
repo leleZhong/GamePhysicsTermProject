@@ -37,7 +37,6 @@ public class ObjectInViewAudio : MonoBehaviour
                 audioSource.loop = false;
                 audioSource.Play();
                 hasPlayed = true;
-          
         }
         else
         {
