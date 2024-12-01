@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-    static GameObject _folder;
     static Dictionary<int, List<GameObject>> _dic = new Dictionary<int, List<GameObject>>();
 
     public static GameObject Spawn(GameObject prefab, Vector3 pos, Quaternion rot)
     {
-        if (_folder == null)
-            _folder = new GameObject("Pool");
-
         if (_dic.ContainsKey(prefab.GetInstanceID()))
         {
             List<GameObject> list = _dic[prefab.GetInstanceID()];
+
+            for (int i = list.Count - 1; i >= 0; i--) // 역순으로 검사
+            {
+                if (list[i] == null) // 삭제된 오브젝트 제거
+                {
+                    list.RemoveAt(i);
+                }
+            }
 
             for (int i=0; i < list.Count; i++)
             {
