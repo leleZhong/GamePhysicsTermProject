@@ -43,7 +43,7 @@ public class StageManager : MonoBehaviour
             _currentTime = Time.time + _delay + UnityEngine.Random.Range(0.5f, 2f);
         }
 
-        if (_score >= 100 && !_isBossSpawned)
+        if (_score >= 50 && !_isBossSpawned)
         {
             // 보스 프리팹 생성
             SpawnBoss();
