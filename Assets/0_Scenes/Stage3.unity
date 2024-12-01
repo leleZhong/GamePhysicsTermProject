@@ -1393,7 +1393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2812424919977525199, guid: 05c5891d178adf540872c337924d4e63, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5282153343680739280, guid: 05c5891d178adf540872c337924d4e63, type: 3}
       propertyPath: _myTF
@@ -1427,6 +1427,18 @@ PrefabInstance:
       propertyPath: _damageHandler
       value: 
       objectReference: {fileID: 1445387091}
+    - target: {fileID: 7417177497260694936, guid: 05c5891d178adf540872c337924d4e63, type: 3}
+      propertyPath: m_Size.x
+      value: 0.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417177497260694936, guid: 05c5891d178adf540872c337924d4e63, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417177497260694936, guid: 05c5891d178adf540872c337924d4e63, type: 3}
+      propertyPath: m_Direction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7778726442180613319, guid: 05c5891d178adf540872c337924d4e63, type: 3}
       propertyPath: _maxHP
       value: 100
