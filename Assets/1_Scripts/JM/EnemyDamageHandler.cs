@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -39,9 +40,9 @@ public class EnemyDamageHandler : MonoBehaviour
         }
         if (_hp <= 0)
         {
-            if (SceneManager.GetActiveScene().name == "Stage3")
+            if (SceneManager.GetActiveScene().name != "Stage2")
             {
-                Stage3.Instance.AddScore(10);
+                StageManager.Instance.AddScore(10);
                 Destroy(gameObject);
             }
         }

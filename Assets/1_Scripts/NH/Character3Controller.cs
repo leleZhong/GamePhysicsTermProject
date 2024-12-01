@@ -8,7 +8,7 @@ public class Character3Controller : MonoBehaviour
     public Animator animator;
     public float currentHP;
     private bool isHurt = false;
-    private bool isDead = false;
+    public bool isDead { get; private set; } = false;
     public GameObject assignedPlayer;
     public GameObject DeathCloud;
 
